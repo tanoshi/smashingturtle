@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Teste mich
+categories: tech
 teaser: /assets/images/09.jpg
 ---
 ![test](/assets/images/01.jpg)
