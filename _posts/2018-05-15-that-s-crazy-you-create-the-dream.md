@@ -2,7 +2,7 @@
 layout: post
 title: That's crazy. You create the dream
 categories: tech
-teaser: /assets/images/01.jpg
+teaser: /static/images/uploads/iphone-x-silver-select-2017.jpeg
 ---
 That's crazy. You create the dream - then you bring it into your world. This is your world.
 
