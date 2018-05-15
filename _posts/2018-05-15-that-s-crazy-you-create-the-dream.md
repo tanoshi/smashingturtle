@@ -8,7 +8,7 @@ That's crazy. You create the dream - then you bring it into your world. This is 
 
 There comes a nice little fluffer. Just use the old one inch brush. You are only limited by your imagination. Don't forget to tell these special people in your life just how special they are to you.
 
-![iphone](/assets/images/iphone-x-silver-select-2017.jpeg)
+![iphone](/static/images/uploads/iphone-x-silver-select-2017.jpeg)
 
 A happy cloud. It just happens - whether or not you worried about it or tried to plan it. Put it in, leave it alone. Everyone needs a friend. Friends are the most valuable things in the world. That's the way I look when I get home late; black and blue. Be careful. You can always add more - but you can't take it away.
 
