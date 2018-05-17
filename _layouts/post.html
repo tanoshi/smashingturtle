@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<article class="container pt-5" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+
+    <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+    <p>
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        {{ page.date | date: date_format }}
+      </time>
+      {% if page.author %}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+      {% endif %}</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if site.disqus.shortname %}
+    {% include disqus_comments.html %}
+  {% endif %}
+</article>
+
+<div class="container">
+  <div class="row">
+    {% assign allPosts = site.posts | sort: 'date' | reverse %}
+    {% for single in allPosts limit:6 %}
+      <div class="col-sm-8">
+        {%- include card.html -%}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{{ page.categories }}

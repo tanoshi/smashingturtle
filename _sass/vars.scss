@@ -1,0 +1,187 @@
+$site_width: 1000px;
+$small_width: 480px;
+$medium_width: 590px;
+$large_width: 769px;
+$huge_width: 1000px;
+$giant_width: 1325px;
+$full_width: 1501px;
+$desktop_width: 9999px;
+
+$small_height : 0px;
+$medium_height: 0px;
+$large_height: 0px;
+$huge_height: 0px;
+$giant_height: 0px;
+$full_height: 0px;
+$desktop_height: 0px;
+$nav_height: 50px;
+$gutter: 25px;
+$column_width: 300px;
+
+//== Spacer
+//
+//##
+
+$spacer-lg:         $gutter*2;
+$spacer-md:         $gutter*1.5;
+$spacer-base:       $gutter;
+$spacer-sm:         $gutter/4*3;
+$spacer-xs:         $gutter/2;
+$spacer-xxs:         $gutter/4;
+
+$sans_stack: Calibri, Tahoma, "Lucida Grande", "Helvetica Neue", Helvetica, "DejaVu Sans", Arial, sans-serif;
+$cursive_stack: $sans_stack;
+$body_family: Roboto, $sans_stack;
+$heading_family: $body_family;
+$base_font_size: 16px;
+$line-height: ms(2, none);
+
+$default_blue: #039cfd;
+$default_dark: #282a31;
+$default_grey: #c4c4c7;
+$light_grey: #f4f4f4;
+$default_red: #f33;
+
+
+
+
+
+
+
+
+$columns: 12;
+$sidebar_width: 306px;
+$mrec_height: 250px;
+
+// Greyscale
+$white: hsl(0,0%,100%);
+$bright: hsl(192,18%,89%);
+$light: hsl(0,0%,81%);
+$grey: hsl(240,3%,77%);
+$gray: $grey;
+$dun: hsl(229,15%,24%);
+$dark: hsl(227,10%,17%);
+$black: hsl(0,0%,0%);
+$transparent: transparent;
+$sepia-h: 38;
+// Project Colors
+$main_h: 203;
+$main_color: hsl($main_h,98%,50%);
+$main_light: hsl($main_h,75%,67%);
+$accent_h: 351;
+$accent_color: hsl($accent_h,63%,49%);
+$accent_green_h: 100;
+$accent_color_green: hsl($accent_green_h,63%,49%);
+// Font colors
+$body_color: $dark;
+$heading_color: $dark;
+$font-smoothing: antialiased;
+// Link colors
+$link_color: $main_color;
+$link_hover_color: $dark;
+$link_active_color: $main_color;
+$link_visited_color: $main_color;
+$link_focus_color: $main_color;
+// Selection colors
+$selection_background_color: $light;
+$tap_highlight_color: $transparent;
+$selection_color: $white;
+$placeholder_color: $light;
+// traffic lights
+$positive_color: hsl(150,100%,30%);
+$mediocre_color: hsl(60,100%,40%);
+$negative_color: hsl(358,73%,36%);
+$redbtn: #cc2e46;
+$neutral_color: $dark;
+$ins_color: $body_color;
+$del_color: $negative_color;
+//misc
+$line_width: 38em;
+$radius: 5px;
+$box_shadow: 0 6px 6px -6px hsla(0,0%,0%,1);
+$box_shine: 0 5px 20px 0 hsla(0,0%,100%,.5) inset;
+//socialweb colors
+$rss_color: hsl(33,60%,50%);
+$pinterest_color: hsl(358,50%,30%);
+$google_color: hsl(10,60%,50%);
+$youtube_color: hsl(358,79%,45%);
+$twitter_color: hsl(195,60%,50%);
+$facebook_color: hsl(222,50%,30%);
+$linkedin_color: hsl(201,100%,35%);
+$whatsapp_color: hsl(116,84%,34%);
+$instagram_color: hsl(206,33%,48%);
+$email_color: hsl(50,50%,50%);
+//text-shadows
+$ts_l: 0 1px 0 $white;
+$ts_d: 0 -1px 0 $black;
+$list-colors:
+  // project
+    ('main' $main_color)
+    ('main-light' $main_light)
+    ('accent' $accent_color)
+    ('accent-green', $accent_color_green)
+    // greyscale
+    ('white' $white)
+    ('bright' $bright)
+    ('light' $light)
+    ('grey' $grey)
+    ('gray' $gray)
+    ('dun' $dun)
+    ('dark' $dark)
+    ('black' $black)
+    // social
+    ('rss' $rss_color)
+    ('pinterest' $pinterest_color)
+    ('google' $google_color)
+    ('youtube' $youtube_color)
+    ('twitter' $twitter_color)
+    ('facebook' $facebook_color)
+    ('linkedin' $linkedin_color)
+    ('whatsapp' $whatsapp_color)
+    ('instagram' $instagram_color)
+    ('email' $email_color)
+    // helper
+    ('transparent' $transparent)
+    ('positive' $positive_color)
+    ('mediocre' $mediocre_color)
+    ('negative' $negative_color)
+    ('neutral' $neutral_color)
+    ('ins' $ins_color)
+    ('del' $del_color)
+    ('body' $body_color)
+    ('heading' $heading_color)
+    ('link' $link_color)
+    ('link-hover' $link_hover_color)
+    ('link-active' $link_active_color)
+    ('link-visited' $link_visited_color)
+    ('selection-background' $selection_background_color)
+    ('tap-highlight' $tap_highlight_color)
+    ('selection' $selection_color)
+    ('placeholder' $placeholder_color);
+
+@mixin gradient-grey($opacity: 0) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  opacity: $opacity;
+  background: linear-gradient(0deg, rgba(52, 55, 70, .5) 20%, rgba(52, 55, 70, 0) 60%);
+}
+$default_blue: #039cfd;
+$default_dark: #282a31;
+$default_grey: #c4c4c7;
+$light_grey: #f4f4f4;
+$default_red: #f33;
+$defaultMobileFontSize: 5.2vmin;
+$smallMobileFontSize: 4vmin;
+$verySmallMobileFontSize: 3.55vmin;
+$smallestMobileFontSize: 2.88vmin;
+
+$defaultDesktopFontSize: 1.125rem;
+$smallDesktopFontSize: .9rem;
+$verySmallDesktopFontSize: .8rem;
+$smallestDesktopFontSize: .65rem;
+
+$border-radius: 2px;

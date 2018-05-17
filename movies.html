@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<main class="container mt-4">
+  <h1>Popular Movies</h1>
+  <div class="row">
+    {% assign allMovies = site.movies | sort: 'popularity' | reverse %}
+    {% for single in allMovies limit:12 %}
+      <div class="col-sm-4">
+        {%- include card.html -%}
+      </div>
+    {% endfor %}
+  </div>
+
+</main>

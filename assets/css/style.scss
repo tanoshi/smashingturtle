@@ -1,0 +1,52 @@
+---
+---
+@import "vars.scss";
+
+@mixin text-shadow() {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+@import url(//fonts.googleapis.com/css?family=Roboto:300,400italic,400,700);
+@mixin clear() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@import "u-shape.scss";
+@import "card.scss";
+.post-content {
+  img {
+    max-width: 200px;
+  }
+
+  a {
+    transition: color 200ms, background-color 200ms, border-color 200ms, opacity 200ms;
+    border-bottom: 1px solid $default_dark;
+    color: $default_dark;
+
+    &:hover {
+      color: $default_dark;
+      text-decoration: none;
+      opacity: .8;
+    }
+  }
+
+}
+
+img {
+  max-width: 100%;
+}
+
+.headline {
+  font-size: 32px;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3em;
+  margin-bottom: 0;
+}
+
+
+
+

@@ -1,0 +1,8 @@
+a .card {
+  color:var(--gray-dark);
+}
+
+a .card:hover {
+  text-decoration:none !important;
+  filter: brightness(1.2);
+}

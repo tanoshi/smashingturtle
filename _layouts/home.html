@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<main class="container mt-4">
+
+  <h1>Popular News</h1>
+  <div class="row">
+    {% assign allPosts = site.posts | sort: 'date' | reverse %}
+    {% for single in allPosts limit:6 %}
+      <div class="col-sm-8">
+        {%- include card.html -%}
+      </div>
+    {% endfor %}
+  </div>
+
+  <!--
+  <h1>Popular Movies</h1>
+  <div class="row">
+    {% assign allMovies = site.movies | sort: 'popularity' | reverse %}
+    {% for single in allMovies limit:6 %}
+      <div class="col-sm-4">
+        {%- include card.html -%}
+      </div>
+    {% endfor %}
+  </div>
+-->
+</main>

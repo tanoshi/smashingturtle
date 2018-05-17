@@ -1,0 +1,58 @@
+//
+// U-Shape
+// --------------------------------------------------
+
+.u-shape {
+  position: relative;
+  z-index: 20;
+  padding: 0;
+
+  .u-shape-top {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    text-align: center;
+    min-height: 75px;
+  }
+
+  .u-shape-right,
+  .u-shape-left {
+    display: block;
+    line-height: 0;
+  }
+
+  .u-shape-left {
+    position: absolute;
+    margin-left: -185px;
+    top: 25px;
+  }
+
+  .u-shape-right {
+    position: absolute;
+    margin-left: 1000px + 25px;
+    top: 0;
+
+    .affix-bottom {
+      position: fixed;
+    }
+  }
+
+  a {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: $huge_width) {
+  .u-shape {
+    .u-shape-top {
+      padding-top: 25px;
+      padding-bottom: 25px;
+      min-height: 140px;
+    }
+
+    .u-shape-right {
+      padding-top: 25px;
+    }
+  }
+};

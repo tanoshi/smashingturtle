@@ -1,0 +1,11 @@
+<article class="card-container with-link">
+  <div class="card-media ">
+    <img title="{{ single.title }}" src="{{ single.teaser }}">
+  </div>
+  <div class="card-body">
+    <h3 class="card-headline">
+      <a class="card-link" href="{{ single.url }}">{{ single.title }}</a>
+    </h3>
+    <p class="card-text">{{ single.excerpt | truncatewords: 85, "..." }}</p>
+  </div>
+</article>
