@@ -44,6 +44,8 @@ collections:
       layout: post
   imagestories:
     output: true
+    values:
+          layout: imagestory
   movies:
     output: true
     permalink: /:collection/:name

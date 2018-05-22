@@ -1,0 +1,254 @@
+// Verwendbare Headlines
+// ---------------------------------
+.stiPageHead {
+  margin: 0 0 15px;
+  @include stiFontFamilyProp(36px, 40px, bold, #333, $headings-font-family);
+
+  a {
+    color: #333;
+  }
+
+  h1 {
+    @include stiFontFamilyProp(36px, 40px, bold, #333, $headings-font-family);
+  }
+
+  span {
+    @include stiFontColorProp (20px, 26px, 600, #333);
+    display: block;
+
+    em {
+      font-style: normal;
+    }
+  }
+}
+
+.stiPictureStreamPageHead {
+  @extend .stiPageHead;
+  font-size: 26px;
+  line-height: 25px;
+  margin: 0px;
+}
+
+.item-back-to-article {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+.stiPictureStream2 {
+  padding: 15px;
+  background-color: #f4f4f4;
+  overflow: hidden;
+  @extend .clearfix;
+
+  .stiPictureStream2PrevImg {
+    margin-bottom: 10px;
+  }
+
+  // h4 = Title from "Beliebte Bilderstrecken" last page
+  .item-headline, h4 {
+    @include stiFontFamilyProp(22px, 28px, bold, #333, $droidsans);
+    margin: 10px 0;
+  }
+
+  .item-container:not(.item-last) {
+    .item-media {
+      background-color: #fff;
+      text-align: center;
+    }
+  }
+
+  .item-media {
+    display: table;
+    width: 100%;
+    margin-bottom: $elemntsMarginBottom;
+  }
+
+  .item-content {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+
+    > p > *,
+    > div > *,
+    > * {
+      margin: 0 auto !important;
+    }
+  }
+
+  .item-prev,
+  .item-next {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    margin: auto 0;
+    height: 100%;
+    outline: 0;
+
+    span {
+      @include translate(0, -50%);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      font-size: 28px;
+    }
+  }
+
+  .item-prev {
+    width: 17%;
+    height: 50%;
+
+    span {
+      @include border-left-radius(0);
+    }
+  }
+
+  .item-next {
+    @extend .text-right;
+    left: auto;
+    right: 0;
+    width: 17%;
+    height: 50%;
+
+    span {
+      @include border-right-radius(0);
+      right: 0;
+      left: auto;
+    }
+  }
+
+  .stiPictureStreamTaboolaPlaceholder {
+    margin: 10px 0 0;
+  }
+
+  .stiPictureStreamRefs {
+    margin: 0 -5px;
+
+    li {
+      border-color: $body-bg;
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+  .stiPictureStream2 {
+    .item-media {
+      position: relative;
+      min-height: 450px;
+    }
+
+    .item-description-container {
+      @include clearfix;
+      width: 66.66666667%;
+      float: left;
+      padding-right: $grid-gutter-width/2;
+    }
+
+    .item-back-to-article {
+      float: left;
+    }
+
+    .item-nextpage {
+      text-align: right
+    }
+
+    .item-last {
+      .item-media {
+        position: relative;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md) {
+  .stiJsPrevLoad,
+  .item-back-to-article {
+    margin-top: 10px;
+  }
+
+  .stiPictureStream2 {
+    .stiPictureStream2Container {
+      margin-bottom: $elemntsMarginBottom/2;
+    }
+
+    .item-headline {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .item-description-container {
+      font-size: 18px;
+
+      ul, ol {
+        padding-left: 35px
+      }
+    }
+
+    .item-container:not(.item-has-embed):not(.item-last) {
+      .item-media {
+        background-color: transparent;
+        position: relative;
+        height: 0;
+        overflow: hidden;
+      }
+    }
+
+    .stiPictureStreamRefs {
+      li {
+        width: 100%;
+      }
+    }
+
+    .item-container:not(.item-has-embed):not(.item-last) {
+      .item-content {
+        @include width-height(100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .item-prev,
+    .item-next {
+      position: unset;
+      width: 15%;
+      height: 50%;
+    }
+
+    .item-container:not(.item-has-embed) {
+      .item-prev,
+      .item-next {
+        position: absolute;
+        left: 0;
+      }
+
+      .item-next {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .ads-container {
+      text-align: center;
+      margin: $elemntsMarginBottom auto;
+      min-height: 150px;
+    }
+
+    .item-nextpage,
+    .item-prev span,
+    .item-next span {
+      display: none;
+    }
+
+    .item-has-embed {
+      .item-media {
+        padding-bottom: 0 !important;
+      }
+    }
+
+  }
+}

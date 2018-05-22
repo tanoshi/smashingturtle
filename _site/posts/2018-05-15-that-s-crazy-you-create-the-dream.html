@@ -12,9 +12,8 @@
     <link rel="alternate" type="application/rss+xml" title="kino.com" href="/%20/feed.xml">
 
     <!-- Stylesheets link-tags -->
-    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/jekyll-bootstrap.css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style.css" />
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119335298-1"></script>
     <script>
@@ -25,13 +24,36 @@
       gtag('config', 'UA-119335298-1');
     </script>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
     <script>
       var googletag = googletag || {};
       googletag.cmd = googletag.cmd || [];
     </script>
-    <script src="/assets/js/script.js"></script>
+
+    <script src="/assets/js/nav.js"></script>
+    <script src="/assets/js/require.js"></script>
+    <script type="text/javascript">
+      requirejs.config({
+
+        baseUrl: '/assets/js/',
+
+        shim: {
+          'vendor/jquery': {
+            exports: 'jQuery',
+          },
+        },
+        paths: {
+          // vendor from cdn
+          'vendor/jquery': 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min',
+          'ads': 'ads',
+          'stijson': 'stijson',
+          'itemstream': 'itemstream',
+          'picurestreamabitrage': 'psabitrage',
+        },
+      });
+    </script>
+
 </head>
 
 <body>
@@ -45,6 +67,7 @@
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <a class="nav-link" href="/movies/">movies</a>
+                <a class="nav-link" href="/imagestories/">Image Stories</a>
               </li>
             </ul>
         </div>
@@ -70,130 +93,110 @@
 </div>
 
 
-    <article class="container pt-5 pb-5" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
+    <article class="container-fluid">
+  <script>
 
-    <h1 itemprop="name headline">That&#39;s crazy. You create the dream</h1>
-    <p>
-      <time datetime="2018-05-15T00:00:00+02:00" itemprop="datePublished">
-        
-        May 15, 2018
-      </time>
-      </p>
-  </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <p>That’s crazy. You create the dream - then you bring it into your world. This is your world.</p>
 
-<p>There comes a nice little fluffer. Just use the old one inch brush. You are only limited by your imagination. Don’t forget to tell these special people in your life just how special they are to you.</p>
 
-<p><img src="/static/images/uploads/xd_riverflow2_blog-image_v1-1-720x280.jpg" alt="iphone" /></p>
+    require(['stijson', 'picurestreamabitrage'],
+    function(stijson, picurestreamabitrage) {
 
-<p>A happy cloud. It just happens - whether or not you worried about it or tried to plan it. Put it in, leave it alone. Everyone needs a friend. Friends are the most valuable things in the world. That’s the way I look when I get home late; black and blue. Be careful. You can always add more - but you can’t take it away.</p>
+      var url = "https://www.spieletipps.de/_r/picturestream/6055";
+      var jsonDATA = null;
 
-<p>Let’s put a touch more of the magic here. You need the dark in order to show the light. I like to beat the brush. We’ll lay all these little funky little things in there. Let all these little things happen. Don’t fight them. Learn to use them. In your world you have total and absolute power.</p>
+      stijson.jsData(url, jsonDATA);
 
-<p>The secret to doing anything is believing that you can do it. Anything that you believe you can do strong enough, you can do. Anything. As long as you believe. No pressure. Just relax and watch it happen. If it’s not what you want - stop and change it. Don’t just keep going and expect it will get better.</p>
+      var wholejson = stijson.jsData(url, jsonDATA);
+      var totalimg = wholejson.images.length;
+      console.log(wholejson);
+      console.log('alter ' + wholejson.id);
+      console.log('name ' + wholejson.name)
+      console.log('anzahl ' + totalimg)
 
-<p>Don’t fight it, use what happens. Let’s put some highlights on these little trees. The sun wouldn’t forget them. The little tiny Tim easels will let you down.</p>
+    console.log('new func ' + wholejson.id);
+        var pageSettings = {
+          referencesTrackedOnMobile: false,
+          listId: wholejson.id,
+        isMobile: null, // todo
+        defaultPageTitle: "",// "<?=htmlspecialchars($this->metaData->defaultPageTitle)?>",
+          pagerTotalItems: wholejson.images.length ,// <?= (int)$this->pager['total_items'];?>,
+        lastPageWithImage: wholejson.images.length - 1, //  <?= $this->pager['last_page'] - 1; ?>,
+        displayReferences: null,//  <?= (int)$this->displayReferences; ?>,
+        initialPage: null,
+          activatePageTrack: false,
+          feBaseUrl: null,//"<?= htmlspecialchars($this->feBaseUrl)?>",
+          items :  wholejson.images,// <?= $itemsList; ?>,
+        tplId : 'stiJsPicturestreamTemplate'
+      }
 
-<p>A beautiful little sunset. We tell people sometimes: we’re like drug dealers, come into town and get everybody absolutely addicted to painting. It doesn’t take much to get you addicted. Anytime you learn something your time and energy are not wasted. That’s what painting is all about. It should make you feel good when you paint. Trees grow in all kinds of ways. They’re not all perfectly straight. Not every limb is perfect.</p>
+        picurestreamabitrage.init(pageSettings);
 
-  </div>
+    })
+  </script>
 
-  
-</article>
-
-<div class="container">
-  <div class="row">
-    
-    
-      <div class="col-sm-8"><article class="card-container with-link">
-  <div class="card-media ">
-    <img title="iPhone-X-Nachfolger: Apple will Lieferumfang verkleinern" src="/images/uploads/iphone-x-silver-select-2017.jpeg">
-  </div>
-  <div class="card-body">
-    <h3 class="card-headline">
-      <a class="card-link" href="/posts/2018-05-15-iphone-x-nachfolger-apple-will-lieferumfang-verkleinern">iPhone-X-Nachfolger: Apple will Lieferumfang verkleinern</a>
-    </h3>
-    <p class="card-text"><p>iPhone-X-Nachfolger: Offenbar ohne Lightning-auf-Kopfhöreranschluss-Adapter</p>
-
-</p>
-  </div>
-</article>
-</div>
-    
-      <div class="col-sm-8"><article class="card-container with-link">
-  <div class="card-media ">
-    <img title="That's crazy. You create the dream" src="/static/images/uploads/xd_riverflow2_blog-image_v1-1-720x280.jpg">
-  </div>
-  <div class="card-body">
-    <h3 class="card-headline">
-      <a class="card-link" href="/posts/2018-05-15-that-s-crazy-you-create-the-dream">That's crazy. You create the dream</a>
-    </h3>
-    <p class="card-text"><p>That’s crazy. You create the dream - then you bring it into your world. This is your world.</p>
-
-</p>
-  </div>
-</article>
-</div>
-    
-      <div class="col-sm-8"><article class="card-container with-link">
-  <div class="card-media ">
-    <img title="Teste mich" src="/assets/images/09.jpg">
-  </div>
-  <div class="card-body">
-    <h3 class="card-headline">
-      <a class="card-link" href="/posts/2018-05-14-teste-mich">Teste mich</a>
-    </h3>
-    <p class="card-text"><p>Use what you see, don’t plan it. This is the fun part Everybody needs a friend. If you don’t think every day is a good day - try missing a few. You’ll see. Let’s put some happy little clouds in our world. Work on one thing at a time. Don’t get carried away - we have plenty of time.</p>
-
-</p>
-  </div>
-</article>
-</div>
-    
-      <div class="col-sm-8"><article class="card-container with-link">
-  <div class="card-media ">
-    <img title="Hier kommt ein zweiter Post" src="/img/uploads/45-years-2015-teaser.jpg">
-  </div>
-  <div class="card-body">
-    <h3 class="card-headline">
-      <a class="card-link" href="/posts/2018-05-07-hier-kommt-ein-zweiter-post">Hier kommt ein zweiter Post</a>
-    </h3>
-    <p class="card-text"><p>Mit ganz viel Text</p>
-</p>
-  </div>
-</article>
-</div>
-    
-      <div class="col-sm-8"><article class="card-container with-link">
-  <div class="card-media ">
-    <img title="Noch mehr News" src="/img/uploads/9-2009-teaser.jpg">
-  </div>
-  <div class="card-body">
-    <h3 class="card-headline">
-      <a class="card-link" href="/posts/2018-05-07-noch-mehr-news">Noch mehr News</a>
-    </h3>
-    <p class="card-text"><p>Wowo so viel Text</p>
-</p>
-  </div>
-</article>
-</div>
-    
-  </div>
-</div>
-tech
-
-    <footer class="container footer">
-    <hr>
-    <div class="row">
-        <div class="col">
-            <p>Subscribe to latest publications on this website <a class="text-warning" href="/feed.xml" rel="alternate">via RSS</a></p>
+  <!--<?php if ($this->CONTEXT->displayMobile()): ?>-->
+  <!--<div class="stiPictureStream2">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-8">-->
+        <!--<div id="picturestreamContainer" class="stiPictureStream2Container"></div>-->
+      <!--</div>-->
+      <!--<div class="col-md-4">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<?php else:?>-->
+  <div class="stiPictureStream2"></div>
+  <script type="text/template" id="stiJsPicturestreamTemplate">
+    <div data-streamindex="1" class="item-container" data-item="container">
+      <div class="item-headline" data-item="headline"></div>
+      <div class="item-media" data-item="media">
+        <a href="#" class="item-prev" data-action="item-prev">
+            <span class="btn btn-default">
+                <i class="fa fa-angle-left"></i>
+            </span>
+        </a>
+        <div class="item-content" data-item="content">
         </div>
-        <div class="col">
-            <p class="text-muted">This is an awesome page for international movie enthusiasts.</p>
+        <a href="#" class="item-next" data-action="item-next"> <span class="btn btn-default"><i class="fa fa-angle-right"></i></span> </a></div>
+      <div class="item-description-container" data-item="description-container">
+        <div class="item-description" data-item="description">
         </div>
+        <div class="item-nextpage">
+          <a title="weiter" class="btn btn-primary" href="#" data-action="item-next" data-post-action="scrollToTop">Nächstes Bild <i class="fa fa-angle-right"></i></a>
+        </div>
+      </div>
+      <div class="ads-container" data-item="ads-container">
+      </div>
+    </div>
+  </script>
+</article>
+
+    <footer class=" footer">
+    <div class="container">
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a class="nav-link" href="/about/">About us</a>
+            </li>
+            <li class="list-inline-item">
+                <a class="nav-link" href="/contact/">Contact Us</a>
+            </li>
+            <li class="list-inline-item">
+                <a class="nav-link" href="/legal/">Legal Notice</a>
+            </li>
+            <li class="list-inline-item">
+                <a class="nav-link" href="/privacy/">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+                <a class="nav-link" href="http://www.stroeermediabrands.de/wp-content/uploads/2015/09/AGB_Werbekunden_SMB.pdf" target="_blank">Terms & Conditions</a>
+            </li>
+            <li class="list-inline-item">
+                <a class="nav-link" href="/dmca/">DMCA</a>
+            </li>
+        </ul>
+        <p class="text-sm-center ">
+            © SmashingTurtle.com 2018
+        </p>
     </div>
 </footer>
 

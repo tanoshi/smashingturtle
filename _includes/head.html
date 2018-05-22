@@ -10,9 +10,8 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ " /feed.xml " | relative_url }}">
 
     <!-- Stylesheets link-tags -->
-    <link rel="stylesheet" type="text/css" media="all" href="{{ "/assets/css/jekyll-bootstrap.css" | relative_url }}" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" media="all" href="{{ "/assets/css/style.css" | relative_url }}" />
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119335298-1"></script>
     <script>
@@ -23,11 +22,34 @@
       gtag('config', 'UA-119335298-1');
     </script>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
     <script>
       var googletag = googletag || {};
       googletag.cmd = googletag.cmd || [];
     </script>
-    <script src="{{ "/assets/js/script.js" | relative_url }}"></script>
+
+    <script src="{{ "/assets/js/nav.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/require.js" | relative_url }}"></script>
+    <script type="text/javascript">
+      requirejs.config({
+
+        baseUrl: '/assets/js/',
+
+        shim: {
+          'vendor/jquery': {
+            exports: 'jQuery',
+          },
+        },
+        paths: {
+          // vendor from cdn
+          'vendor/jquery': 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min',
+          'ads': 'ads',
+          'stijson': 'stijson',
+          'itemstream': 'itemstream',
+          'picurestreamabitrage': 'psabitrage',
+        },
+      });
+    </script>
+
 </head>

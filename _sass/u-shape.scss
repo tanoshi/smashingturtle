@@ -45,6 +45,8 @@
 
 @media (min-width: $huge_width) {
   .u-shape {
+    max-width: 1000px;
+    margin: 0 auto;
     .u-shape-top {
       padding-top: 25px;
       padding-bottom: 25px;

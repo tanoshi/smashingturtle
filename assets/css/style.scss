@@ -1,11 +1,13 @@
 ---
 ---
+
+@import "jekyll-bootstrap.scss";
 @import "vars.scss";
+@import "mixins.scss";
 
 @mixin text-shadow() {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
 }
-@import url(//fonts.googleapis.com/css?family=Roboto:300,400italic,400,700);
 @mixin clear() {
   &:after {
     content: "";
@@ -13,11 +15,12 @@
     clear: both;
   }
 }
-@import "u-shape.scss";
+@import "u-shape.scss" ;
 @import "card.scss";
+@import "imagestory.scss";
 .post-content {
   img {
-    max-width: 200px;
+    max-width: 600px;
   }
 
   a {
@@ -38,6 +41,14 @@ img {
   max-width: 100%;
 }
 
+.page-headline {
+  line-height: 1.25;
+  font-size: 1.9rem;
+  padding: 0 0 15px;
+  margin: 0 0 25px;
+  font-weight: 600;
+  border-bottom: 1px solid $default_grey;
+}
 .headline {
   font-size: 32px;
   letter-spacing: -0.5px;
@@ -47,6 +58,23 @@ img {
   margin-bottom: 0;
 }
 
+.section-header {
+  padding: 0 0 2vmin;
+  margin-bottom: 5vmin;
+  border-bottom: 1px solid $default_grey;
+}
 
+article {
+  ol {
+    li {
+      margin-bottom: .5rem;
+    }
+  }
+}
 
-
+footer {
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}

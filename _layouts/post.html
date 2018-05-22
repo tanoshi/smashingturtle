@@ -1,37 +1,81 @@
 ---
 layout: default
 ---
-<article class="container pt-5 pb-5" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
+<article class="container-fluid">
+  <script>
 
-    <h1 itemprop="name headline">{{ page.title | escape }}</h1>
-    <p>
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        {{ page.date | date: date_format }}
-      </time>
-      {% if page.author %}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
-      {% endif %}</p>
-  </header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
 
-  {% if site.disqus.shortname %}
-    {% include disqus_comments.html %}
-  {% endif %}
-</article>
 
-<div class="container">
-  <div class="row">
-    {% assign allPosts = site.posts | sort: 'date' | reverse %}
-    {% for single in allPosts limit:6 %}
-      <div class="col-sm-8">
-        {%- include card.html -%}
+    require(['stijson', 'picurestreamabitrage'],
+    function(stijson, picurestreamabitrage) {
+
+      var url = "https://www.spieletipps.de/_r/picturestream/6055";
+      var jsonDATA = null;
+
+      stijson.jsData(url, jsonDATA);
+
+      var wholejson = stijson.jsData(url, jsonDATA);
+      var totalimg = wholejson.images.length;
+      console.log(wholejson);
+      console.log('alter ' + wholejson.id);
+      console.log('name ' + wholejson.name)
+      console.log('anzahl ' + totalimg)
+
+    console.log('new func ' + wholejson.id);
+        var pageSettings = {
+          referencesTrackedOnMobile: false,
+          listId: wholejson.id,
+        isMobile: null, // todo
+        defaultPageTitle: "",// "<?=htmlspecialchars($this->metaData->defaultPageTitle)?>",
+          pagerTotalItems: wholejson.images.length ,// <?= (int)$this->pager['total_items'];?>,
+        lastPageWithImage: wholejson.images.length - 1, //  <?= $this->pager['last_page'] - 1; ?>,
+        displayReferences: null,//  <?= (int)$this->displayReferences; ?>,
+        initialPage: null,
+          activatePageTrack: false,
+          feBaseUrl: null,//"<?= htmlspecialchars($this->feBaseUrl)?>",
+          items :  wholejson.images,// <?= $itemsList; ?>,
+        tplId : 'stiJsPicturestreamTemplate'
+      }
+
+        picurestreamabitrage.init(pageSettings);
+
+    })
+  </script>
+
+  <!--<?php if ($this->CONTEXT->displayMobile()): ?>-->
+  <!--<div class="stiPictureStream2">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-8">-->
+        <!--<div id="picturestreamContainer" class="stiPictureStream2Container"></div>-->
+      <!--</div>-->
+      <!--<div class="col-md-4">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<?php else:?>-->
+  <div class="stiPictureStream2"></div>
+  <script type="text/template" id="stiJsPicturestreamTemplate">
+    <div data-streamindex="1" class="item-container" data-item="container">
+      <div class="item-headline" data-item="headline"></div>
+      <div class="item-media" data-item="media">
+        <a href="#" class="item-prev" data-action="item-prev">
+            <span class="btn btn-default">
+                <i class="fa fa-angle-left"></i>
+            </span>
+        </a>
+        <div class="item-content" data-item="content">
+        </div>
+        <a href="#" class="item-next" data-action="item-next"> <span class="btn btn-default"><i class="fa fa-angle-right"></i></span> </a></div>
+      <div class="item-description-container" data-item="description-container">
+        <div class="item-description" data-item="description">
+        </div>
+        <div class="item-nextpage">
+          <a title="weiter" class="btn btn-primary" href="#" data-action="item-next" data-post-action="scrollToTop">Nächstes Bild <i class="fa fa-angle-right"></i></a>
+        </div>
       </div>
-    {% endfor %}
-  </div>
-</div>
-{{ page.categories }}
+      <div class="ads-container" data-item="ads-container">
+      </div>
+    </div>
+  </script>
+</article>

@@ -2,7 +2,7 @@
 layout: post
 title: 'iPhone-X-Nachfolger: Apple will Lieferumfang verkleinern'
 categories: iphone tech
-teaser: /images/uploads/iphone-x-silver-select-2017.jpeg
+teaser: /static/images/uploads/xd_riverflow2_blog-image_v1-1-720x280.jpg
 ---
 iPhone-X-Nachfolger: Offenbar ohne Lightning-auf-Kopfhöreranschluss-Adapter
 
